@@ -41,7 +41,7 @@ class DBController {
 		Optional<Customer> customer = databaseService.findById(id);
 		if (customer.isPresent()) {
 			Customer c = customer.get();
-			log.info("returning customer list ... {}",c);
+			log.info("Service 1 returning customer ... {}",c);
 			return c;
 		}
 		
@@ -52,21 +52,21 @@ class DBController {
 	public List<Customer> getAllCustomer() {
 		List<Customer> customerList = new ArrayList<>();
 		databaseService.findAll().forEach(customerList :: add);
-		log.info("returning customer list ... {}",customerList);
+		log.info("Service 1 returning customer list ... {}",customerList);
 		return customerList;
 	}
 	
 	@PostMapping("/add/customer")
 	public void addContent(@RequestBody Customer customer) {
-		log.info("adding customer ... {}",customer);
+		log.info("Service 1 adding customer ... {}",customer);
 		databaseService.save(customer);
-		log.info("successfully added new customer...");
+		log.info("Service 1 successfully added new customer...");
 	}
 
    @GetMapping("/logconsole")
    public String bar() {
-      log.info("info log");
-      log.error("error log");
+      log.info("service 1 info log");
+      log.error("service 1 error log");
       return "bar";
    }
 }
