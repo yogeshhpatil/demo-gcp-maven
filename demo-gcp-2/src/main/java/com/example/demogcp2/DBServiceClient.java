@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 //@FeignClient(value="database-service")
-@FeignClient(name = "database-service", url = "${DEMO_GCP_1_SERVICE_HOST:http://localhost}:8081")
+@FeignClient(name = "database-service", url = "${DEMO_GCP_1_SERVICE_HOST:http://localhost}:8091")
 public interface DBServiceClient {
 
     @GetMapping(value = "/private/v1/get/allcustomer", produces = "application/json")
